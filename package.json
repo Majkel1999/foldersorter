@@ -3,7 +3,18 @@
 	"displayName": "Folder Formatter",
 	"description": "This extension adds 2 new options in folder context menus, allowing to format and organize imports in all files inside.",
 	"version": "0.0.1",
-	"keywords": ["Format","Folders"],
+	"keywords": [
+		"Format",
+		"Folders"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Majkel1999/foldersorter"
+	},
+	"bugs": {
+		"url": "https://github.com/Majkel1999/foldersorter/issues",
+		"email": "mkaleta@duck.com"
+	},
 	"engines": {
 		"vscode": "^1.65.0"
 	},
@@ -41,17 +52,21 @@
 				}
 			]
 		},
-		"configuration":{
+		"configuration": {
 			"title": "Folder formatter",
 			"properties": {
-				"folderformatter.extensions":{
-					"type":"array",
-					"default":["js","ts","py"],
+				"folderformatter.extensions": {
+					"type": "array",
+					"default": [
+						"js",
+						"ts",
+						"py"
+					],
 					"description": "Extensions of files which should be formatted or their imports organized."
 				},
-				"folderformatter.recursive":{
-					"type":"boolean",
-					"default":true,
+				"folderformatter.recursive": {
+					"type": "boolean",
+					"default": true,
 					"description": "Open folders recursively."
 				}
 			}
