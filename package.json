@@ -3,6 +3,7 @@
 	"displayName": "Folder Formatter",
 	"description": "This extension adds 2 new options in folder context menus, allowing to format and organize imports in all files inside.",
 	"version": "0.0.1",
+	"publisher": "michakaleta",
 	"keywords": [
 		"Format",
 		"Folders"
