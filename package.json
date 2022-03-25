@@ -1,0 +1,81 @@
+{
+	"name": "folderformatter",
+	"displayName": "Folder Formatter",
+	"description": "This extension adds 2 new options in folder context menus, allowing to format and organize imports in all files inside.",
+	"version": "0.0.1",
+	"keywords": ["Format","Folders"],
+	"engines": {
+		"vscode": "^1.65.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:folderformatter.formatFolder",
+		"onCommand:folderformatter.formatOrganizeFolder"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "folderformatter.formatFolder",
+				"title": "Format files in folder"
+			},
+			{
+				"command": "folderformatter.formatOrganizeFolder",
+				"title": "Format files and organize imports"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "folderformatter.formatFolder",
+					"group": "SortingGroup@1"
+				},
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "folderformatter.formatOrganizeFolder",
+					"group": "SortingGroup@2",
+					"title": "Format files and organize imports"
+				}
+			]
+		},
+		"configuration":{
+			"title": "Folder formatter",
+			"properties": {
+				"folderformatter.extensions":{
+					"type":"array",
+					"default":["js","ts","py"],
+					"description": "Extensions of files which should be formatted or their imports organized."
+				},
+				"folderformatter.recursive":{
+					"type":"boolean",
+					"default":true,
+					"description": "Open folders recursively."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.65.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.0",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^5.12.1",
+		"@typescript-eslint/parser": "^5.12.1",
+		"eslint": "^8.9.0",
+		"glob": "^7.2.0",
+		"mocha": "^9.2.1",
+		"typescript": "^4.5.5",
+		"@vscode/test-electron": "^2.1.2"
+	}
+}
